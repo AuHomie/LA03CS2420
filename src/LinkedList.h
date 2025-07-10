@@ -1,9 +1,8 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
-
 #include<iostream>
 #include <sstream>
-
+// Ausha Homer
 
 template <class Type>
 struct Node
@@ -54,7 +53,7 @@ class LinkedList {
             temp = front;
             front = front->next;
             delete temp;
-            
+
         }
         
     }
