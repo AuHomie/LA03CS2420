@@ -11,13 +11,13 @@ struct Node
     Node <Type> * next;
 };
 
-template <class Type>
+template<class Type>
 class LinkedList;
 
 template <class Type>
 std::ostream& operator<<(std::ostream& out, const LinkedList<Type>& list);
 
-template <class Type>
+template<class Type>
 class LinkedList {
     
     public:
@@ -29,13 +29,13 @@ class LinkedList {
         friend std::ostream& operator<< <>(std::ostream& out, const LinkedList<Type>& list); // Returns an output stream for displaying the LinkedList. Note, the declaration and definition may need an extra <> in there: std::ostream& operator<< <>(std::ostream& out, const LinkedList<Type>& list);
     
     protected:
-        node <Type>* front;
-        node <Type>* back;
+        Node <Type>* front;
+        Node <Type>* back;
         int count;
     
 };
 
-    template <class Type>
+    template<class Type>
     LinkedList<Type>::LinkedList(){
 
         front = nullptr;
@@ -43,18 +43,36 @@ class LinkedList {
         count = 0;
     };
 
-    template <class Type>
+    template<class Type>
     LinkedList<Type>::~LinkedList(){
 
         Node <Type>* temp = front;
         
-        while (front != null;)
+        while (front != nullptr;)
         {
             temp = front;
             front = front->next;
             delete temp;
 
         }
-        
     }
-#endif LINKEDLIST_H
+
+    template<class Type>
+    void LinkedList<Type>::insert(Type data){
+        Node<Type>temp*= new Node<Type>();
+        temp->data = data;
+        if (!front){
+            this-> front = temp;
+            this-> back = temp;
+        }else {
+            temp->next = nullptr;
+            back->next = temp;
+            back = temp;
+        }
+
+    };
+
+
+
+
+#endif //LINKEDLIST_H
