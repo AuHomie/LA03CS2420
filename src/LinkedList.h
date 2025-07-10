@@ -87,6 +87,47 @@ class LinkedList {
         
     }
 
+    template<class Type>
+    void LinkedList<Type>::remove(int ndx){
+        int currentNodeNum;
+        auto currentNode = front;
+
+        if( ndx >= count){
+            throw std::runtime_error("Item does not exist.");
+        }
+
+        if (ndx == 0 ){
+            front = front->next;
+            delete currentNode;
+            return;
+        }
+
+        while (currentNodeNum < ndx -1)
+        {
+            currentNodeNum ++;
+            currentNode = currentNode->next;
+        }
+
+        auto toDelete = currentNode-> next;
+        currentNode->next = toDelete->next;
+        delete toDelete;
+
+    }
+
+    template <class Type>
+    std::ostream& operator<<(std::ostream& out, const LinkedList<Type>& list){
+
+        auto currentNode = list.front;
+        while (currentNode){
+            out<< currentNode->data;
+        if (currentNode->next){
+            out<< " ";
+        }//end if
+        currentNode = currentNode-> next;
+        }//end while
+        return out;
+    }
+
     
 
 
