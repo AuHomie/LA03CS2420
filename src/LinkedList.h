@@ -45,7 +45,7 @@ class LinkedList {
     template<class Type>
     LinkedList<Type>::~LinkedList(){
 
-        Node <Type>* temp = front;
+        Node<Type>* temp = front;
         
         while (front != nullptr;)
         {
@@ -58,7 +58,7 @@ class LinkedList {
 
     template<class Type>
     void LinkedList<Type>::insert(Type data){
-        Node<Type>temp*= new Node<Type>();
+        Node<Type>* temp = new Node<Type>();
         temp->data = data;
         if (!front){
             this-> front = temp;
@@ -78,7 +78,7 @@ class LinkedList {
         if(ndx >= count) {
             throw std::runtime_error("Item does not exist.");
         }
-        while (currentNodeNum > ndx){ 
+        while (currentNodeNum < ndx){ 
             currentNodeNum++;
             currentNode = currentNode->next;
         }
@@ -88,7 +88,7 @@ class LinkedList {
 
     template<class Type>
     void LinkedList<Type>::remove(int ndx){
-        int currentNodeNum;
+        int currentNodeNum = 0;
         auto currentNode = front;
 
         if( ndx >= count){
@@ -98,6 +98,7 @@ class LinkedList {
         if (ndx == 0 ){
             front = front->next;
             delete currentNode;
+            count --;
             return;
         }
 
@@ -110,6 +111,7 @@ class LinkedList {
         auto toDelete = currentNode-> next;
         currentNode->next = toDelete->next;
         delete toDelete;
+        count --;
 
     }
 
@@ -126,9 +128,6 @@ class LinkedList {
         }//end while
         return out;
     }
-
-    
-
 
 
 
