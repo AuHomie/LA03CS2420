@@ -69,8 +69,25 @@ class LinkedList {
             back->next = temp;
             back = temp;
         }
+        count ++;
+};
 
-    };
+    template<class Type>
+    Type LinkedList<Type>::peek(int ndx){
+        int currentNodeNum = 0;
+        auto currentNode = front;
+        if(ndx >= count) {
+            throw std::runtime_error("Item does not exist.");
+        }
+        while (currentNodeNum > ndx){ 
+            currentNodeNum++;
+            currentNode = currentNode->next;
+        }
+        return currentNode->data;
+        
+    }
+
+    
 
 
 
