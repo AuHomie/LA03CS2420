@@ -47,7 +47,7 @@ class LinkedList {
 
         Node<Type>* temp = front;
         
-        while (front != nullptr;)
+        while (front != nullptr)
         {
             temp = front;
             front = front->next;
